@@ -1,0 +1,11 @@
+/*agrengo una fuente para que quede mas lindo */
+
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Anton&display';
+    background-image: url("/fondojuego.png");
+}
