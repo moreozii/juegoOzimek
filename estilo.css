@@ -8,4 +8,126 @@
 body {
     font-family: 'Anton&display';
     background-image: url("/fondojuego.png");
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+#pantalla-principal {
+    display: none;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    width: 400px;
+    margin-top: 17%;
+    margin-left: 36%;
+    background-color: rgba(231, 62, 231, 0.836);
+    opacity: 90%;
+    padding: 30px;
+    border: 2px solid #000;
+    border-radius: 30px;
+}
+
+#pantalla-principal h1 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 50px;
+    color: black
+}
+
+button {
+    background: #000;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin: 0 20px;
+    border-radius: 30px;
+}
+
+button:hover {
+    border-bottom: 4px solid transparent;
+    background-color: rgba(187, 14, 187, 0.836);
+}
+
+
+/* pantalla del juego*/
+
+#pantalla-juego {
+    display: block;
+}
+
+.pregunta-actual {
+    background-color: #000;
+    color: #fff;
+}
+
+
+/* cambia el color a verde cuando se responda bien */
+
+.bien-respondida {
+    background-color: rgb(9, 206, 9);
+    color: #fff;
+}
+
+
+/* cambia el color a rojo cuando se responda mal */
+
+.mal-respondida {
+    background-color: rgb(201, 3, 3);
+    color: #fff;
+}
+
+.cosoDepreguntas {
+    background-color: rgba(231, 62, 231, 0.836);
+    text-align: center;
+    max-width: 700px;
+    margin: auto;
+    border: 2px solid #000;
+    border-radius: 20px;
+    padding: 0 20px;
+}
+
+.cosoDepreguntas #pregunta {
+    margin: 0;
+    font-weight: normal;
+}
+
+.cosoDepreguntas input {
+    display: inline-block;
+    margin: 10px 0;
+    font: size 25px;
+    padding: 10px;
+    text-align: center;
+    width: 60%;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    border: 2px solid #ccc;
+}
+
+.cosoDepreguntas #letra-pregunta {
+    border: 2px solid #000;
+    display: inline-block;
+    color: #000;
+    font-weight: bold;
+    padding: 5px 10px;
+    font-size: 30px;
+    position: relative;
+    bottom: 25px;
+    background: #fff
+}
+
+.container {
+    position: relative;
+    width: 255px;
+    height: 255px;
+    margin: 50px auto;
+    border: 2px solid #000;
+    border-radius: 50%;
+    background: rgba(187, 14, 187, 0.836);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

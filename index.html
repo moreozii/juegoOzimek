@@ -5,13 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilo.css">
-    <title>PASACOMPU</title>
+    <title>DRINK</title>
 </head>
 
 <body>
     <section id="pantalla-principal">
-        <h1>PASACOMPU</h1>
-        <button id="Comenzar"> COMENZAR JUEGO</button>
+        <h1>DRINK</h1>
+        <button id="Comenzar"> COMENZAR JUEGO </button>
+    </section>
+
+    <!-- seccion del juego -->
+    <section id="pantalla-juego">
+        <!-- aca se generan las letras  -->
+        <div class="container">
+            <span id="tiempo">60</span>
+        </div>
+        <div class="cosoDepreguntas">
+            <span id="letra-pregunta">Z</span>
+            <h2 id="pregunta">La pregunta es....</h2>
+            <input type="text" id="respuesta">
+            <div class="botones">
+                <button id="responder">Responder</button>
+                <button id="pasar">Pasa Drink</button>
+            </div>
+
+        </div>
     </section>
 </body>
 
