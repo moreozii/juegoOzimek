@@ -13,7 +13,7 @@ body {
 }
 
 #pantalla-principal {
-    display: none;
+    display: block;
     align-items: center;
     align-content: center;
     justify-content: center;
@@ -55,7 +55,7 @@ button:hover {
 /* pantalla del juego*/
 
 #pantalla-juego {
-    display: block;
+    display: none;
 }
 
 .pregunta-actual {
@@ -131,23 +131,27 @@ button:hover {
     justify-content: center;
     align-items: center;
 }
-.container #tiempo{
+
+.container #tiempo {
     font-size: 50px;
     font-weight: bold;
 }
+
+
 /*circulo para las letras*/
-.circle{
-    position:absolute;
+
+.circle {
+    position: absolute;
     width: 35px;
     height: 35px;
     border: 2px solid rgba(51, 3, 51, 0.836);
     background: #fff;
-    color:rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
     border-radius: 50%;
-display: flex;
-justify-content: center;
-align-items: center;
-font-size: 20px;
-font-weight:bold ;
-text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
 }
