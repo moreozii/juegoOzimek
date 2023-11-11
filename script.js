@@ -2,6 +2,9 @@
 
 //total de preguntas del juego
 const total_preguntas = 27;
+
+//cantidad de respuestas correctas
+var cantidadAcertadas=0;
 //controla la pregunta actual
 var numPreguntaActual=-1;
 
@@ -70,7 +73,7 @@ const bd_juego = [
             respuesta: "kahlua"
         },
         {
-            id: 'l',
+            id: 'L',
             pregunta: "Trago con champange con helado de limon",
             respuesta: "lemon champ"
         },
@@ -203,7 +206,7 @@ function largarTiempo() {
         if (timeleft < 1) {
             clearInterval(countdown);
             // Swal.fire("Se termino el tiempo, tenes que tomar un shot!");
-            //mostrarPantallaFinal()
+            mostrarPantallaFinal()
         }
 
     }, 1000);
@@ -234,7 +237,7 @@ document.getElementById(letra).classList.add("pregunta-actual");
 }
 else{//ya se respondieron todas las preguntas
     clearInterval(countdown);
-    //mostrarPantallaFinal()
+    mostrarPantallaFinal()
 
 }
 
@@ -261,7 +264,49 @@ function controlarRespuesta(txtRespuesta){
     //controlo si la respuesta es correcta
     if(txtRespuesta == bd_juego[numPreguntaActual].respuesta){
        // Swal.fire("Correcto!");  
-       
+       cantidadAcertadas++;
+
+       //actualizo la pregunta actual a 1 para saber que ya esta respondida
+       estadoPreguntas[numPreguntaActual]=1;
+
+       var letra=bd_juego[numPreguntaActual].id;
+
+       document.getElementById(letra).classList.remove("pregunta-actual");
+       document.getElementById(letra).classList.add("bien-respondida");
+
+
     }
+    else{
+        estadoPreguntas[numPreguntaActual]=1;
+var letra=bd_juego[numPreguntaActual].id;
+      document.getElementById(letra).classList.remove("pregunta-actual");
+       document.getElementById(letra).classList.add("mal-respondida");
+    }
+    //borro
+    respuesta.value="";
+    cargarPregunta()
+}
+//boton para pasar pregunta sin contestar
+var pasar=document.getElementById("pasar");
+pasar.addEventListener("click", function(event){
+    var letra = bd_juego[numPreguntaActual].id;
+    document.getElementById(letra).classList.remove("pregunta-actual");
+
+    cargarPregunta();
+})
+
+//muestro la pantalla final 
+function mostrarPantallaFinal(){
+    document.getElementById("acertadas").textContent =cantidadAcertadas;
+    document.getElementById("score").textContent=(cantidadAcertadas*100)/10 + "% de acierto";
+    document.getElementById("pantalla-juego").style.display="none";
+    document.getElementById("pantalla-final").style.display="block";
 
 }
+
+
+
+
+
+
+

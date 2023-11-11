@@ -12,7 +12,7 @@ body {
     background-size: cover;
 }
 
-#pantalla-principal {
+#pantalla-principal{
     display: block;
     align-items: center;
     align-content: center;
@@ -59,7 +59,7 @@ button:hover {
 }
 
 .pregunta-actual {
-    background-color: #000;
+    background-color: #e09ccc !important;
     color: #fff;
 }
 
@@ -67,16 +67,16 @@ button:hover {
 /* cambia el color a verde cuando se responda bien */
 
 .bien-respondida {
-    background-color: rgb(9, 206, 9);
-    color: #fff;
+    background-color: rgb(9, 206, 9) !important;
+    color: #fff !important;
 }
 
 
 /* cambia el color a rojo cuando se responda mal */
 
 .mal-respondida {
-    background-color: rgb(201, 3, 3);
-    color: #fff;
+    background-color: rgb(201, 3, 3) !important;
+    color: #fff !important;
 }
 
 .cosoDepreguntas {
@@ -154,4 +154,34 @@ button:hover {
     font-size: 20px;
     font-weight: bold;
     text-transform: uppercase;
+}
+/* seccion pantalla final */
+#pantalla-final{
+    display: none;
+    max-width: 700px;
+    margin:auto;
+    text-align: center;
+    background: rgba(187, 14, 187, 0.836);
+    padding: 30px;
+    border: 2px solid #000;
+    border-radius: 20px;
+    
+}
+
+#pantalla-final span{
+    
+    background: #000;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 60px;
+    font-weight: bold;
+    border-radius: 50%;
+    margin-bottom: 30px;
+
+
 }
