@@ -1,9 +1,20 @@
+
+
 //total de preguntas del juego
 const total_preguntas = 27;
+//controla la pregunta actual
+var numPreguntaActual=-1;
+
+
+//estructura para saber que pregunta se respondio o no
+//i=0 no se respondio, 1 si se respondio
+
+//pongo la cant de preguntas (27)
+var estadoPreguntas=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 
 //base de datos de las preguntas
-const bd_juego = [{
-            id: 'A',
+const bd_juego = [
+    {        id: 'A',
             pregunta: "Marca de botella de vodka con diferentes sabores",
             respuesta: "absolut"
         },
@@ -14,7 +25,7 @@ const bd_juego = [{
         },
         {
             id: 'C',
-            pregunta: "La botella de alcohol llamada cororona, que es?",
+            pregunta: "Botella de alcohol llamada cororona, que es?",
             respuesta: "cerveza"
         },
         {
@@ -132,7 +143,7 @@ const bd_juego = [{
         {
             id: 'Z',
             pregunta: "Aguardiente alemán, destilado de ciruelas de la Selva Negra.",
-            respuesta: " zwetschgenwasser"
+            respuesta: "zwetschgenwasser"
         },
         {
             id: '☠',
@@ -161,7 +172,7 @@ for (let i = 1; i <= total_preguntas; i++) {
     } else {
         circle.textContent = String.fromCharCode(i + 96);
     }
-    circle.id = String.fromCharCode(i + 96);
+    circle.id = String.fromCharCode(i + 96).toUpperCase();
     container.appendChild(circle);
     const angle = ((i - 1) / total_preguntas) * Math.PI * 2 - (Math.PI / 2);
     const x = Math.round(100 + 130 * Math.cos(angle));
@@ -176,7 +187,8 @@ comenzar.addEventListener("click", function(event) {
     document.getElementById("pantalla-juego").style.display = "block";
     console.log("Tocaste el boton para jugar!!")
 
-    largarTiempo()
+    largarTiempo();
+    cargarPregunta();
 })
 
 //tiempo
@@ -195,4 +207,61 @@ function largarTiempo() {
         }
 
     }, 1000);
+}
+//funcion que carga la pregunta
+function cargarPregunta(){
+numPreguntaActual++;
+//me fijo si llego al final de las preguntas para empezar de nuevo
+if(numPreguntaActual>=total_preguntas){
+    numPreguntaActual=0;
+}
+
+
+//controlo que todavia hayan preguntas para contestar, es decir ver si en estadoPreguntas existe algun 0
+if(estadoPreguntas.indexOf(0)>=0){
+    //busco cuan de todas esta sin responder osea el primer 0
+    while(estadoPreguntas[numPreguntaActual]==1){
+       numPreguntaActual++;
+       if(numPreguntaActual>=total_preguntas){
+        numPreguntaActual=0;
+       } 
+    }
+//busco la pregunta en la base de datos
+document.getElementById("letra-pregunta").textContent=bd_juego[numPreguntaActual].id;
+document.getElementById("pregunta").textContent=bd_juego[numPreguntaActual].pregunta;
+var letra=bd_juego[numPreguntaActual].id;
+document.getElementById(letra).classList.add("pregunta-actual");
+}
+else{//ya se respondieron todas las preguntas
+    clearInterval(countdown);
+    //mostrarPantallaFinal()
+
+}
+
+
+
+}
+//me fijo cada vez que haya un cambio en el input para ver cuando se presiona ENTER y controlar si lo que ingreso es o no es
+var respuesta=document.getElementById("respuesta");
+respuesta.addEventListener("keyup", function(event){
+    //si presiona enter
+    if(event.keyCode ===13){//si presiono enter y esta vacio
+     
+     if(respuesta.value==""){
+        Swal.fire("Tenes que ingresar la respuesta!");
+        return;
+     }
+     //tengo la respuesta ingresada
+     var txtRespuesta=respuesta.value;
+     controlarRespuesta(txtRespuesta.toLowerCase());
+
+    }
+})
+function controlarRespuesta(txtRespuesta){
+    //controlo si la respuesta es correcta
+    if(txtRespuesta == bd_juego[numPreguntaActual].respuesta){
+       // Swal.fire("Correcto!");  
+       
+    }
+
 }
