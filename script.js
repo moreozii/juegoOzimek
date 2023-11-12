@@ -7,8 +7,8 @@ const total_preguntas = 27;
 var cantidadAcertadas=0;
 //controla la pregunta actual
 var numPreguntaActual=-1;
-
-
+//musica
+let sound = new Audio ()
 //estructura para saber que pregunta se respondio o no
 //i=0 no se respondio, 1 si se respondio
 
@@ -159,7 +159,7 @@ const bd_juego = [
 
 const timer = document.getElementById("tiempo");
 
-const TIEMPO_DEL_JUEGO = 60;
+const TIEMPO_DEL_JUEGO = 70;
 //variable tiempo restante
 let timeleft = TIEMPO_DEL_JUEGO;
 //variable que maneja el contador
@@ -205,8 +205,8 @@ function largarTiempo() {
         //si el tiempo llega a 0, se detiene el cronometro
         if (timeleft < 1) {
             clearInterval(countdown);
-            // Swal.fire("Se termino el tiempo, tenes que tomar un shot!");
-            mostrarPantallaFinal()
+             Swal.fire("Se termino el tiempo, tenes que tomar un shot!");
+            mostrarPantallaFinal();
         }
 
     }, 1000);
@@ -237,7 +237,7 @@ document.getElementById(letra).classList.add("pregunta-actual");
 }
 else{//ya se respondieron todas las preguntas
     clearInterval(countdown);
-    mostrarPantallaFinal()
+    mostrarPantallaFinal();
 
 }
 
@@ -298,11 +298,38 @@ pasar.addEventListener("click", function(event){
 //muestro la pantalla final 
 function mostrarPantallaFinal(){
     document.getElementById("acertadas").textContent =cantidadAcertadas;
-    document.getElementById("score").textContent=(cantidadAcertadas*100)/10 + "% de acierto";
+    document.getElementById("score").textContent=(cantidadAcertadas*100)/27 + "% de acierto";
     document.getElementById("pantalla-juego").style.display="none";
     document.getElementById("pantalla-final").style.display="block";
 
 }
+
+//boton para jugar de nuevo
+var recomenzar=document.getElementById("recomenzar");
+recomenzar.addEventListener("click", function (event){
+    numPreguntaActual=-1;
+    timeleft=TIEMPO_DEL_JUEGO;
+    timer.innerText=timeleft;
+    cantidadAcertadas=0;
+    estadoPreguntas=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+//saco las clases de los circulos
+var circulos=document.getElementsByClassName("circle");
+for(i=0; i<circulos.length;i++){
+
+    circulos[i].classList.remove("pregunta-actual");
+    circulos[i].classList.remove("bien-respondida");
+    circulos[i].classList.remove("mal-respondida");
+
+    
+}
+Document.getElementById("pantalla-final").style.display="none";
+Document.getElementById("pantalla-juego").style.display="block";
+respuesta.value="";
+largarTiempo()
+cargarPregunta()
+
+
+})
 
 
 
