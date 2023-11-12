@@ -7,8 +7,8 @@ const total_preguntas = 27;
 var cantidadAcertadas=0;
 //controla la pregunta actual
 var numPreguntaActual=-1;
-//musica
-let sound = new Audio ()
+
+
 //estructura para saber que pregunta se respondio o no
 //i=0 no se respondio, 1 si se respondio
 
@@ -28,7 +28,7 @@ const bd_juego = [
         },
         {
             id: 'C',
-            pregunta: "Botella de alcohol llamada cororona, que es?",
+            pregunta: "Botella de alcohol llamada corona, que es?",
             respuesta: "cerveza"
         },
         {
@@ -54,7 +54,7 @@ const bd_juego = [
         },
         {
             id: 'H',
-            pregunta: "marca de cerveza, su botella es color verde",
+            pregunta: "Marca de cerveza, su botella es color verde",
             respuesta: "heneiken"
         },
         {
@@ -64,7 +64,7 @@ const bd_juego = [
         },
         {
             id: 'J',
-            pregunta: "marca de whisky de origen estadounidense. Se trata de un whisky Tennesse",
+            pregunta: "Marca de whisky de origen estadounidense. Se trata de un whisky Tennesse",
             respuesta: "jack daniels"
         },
         {
@@ -95,7 +95,7 @@ const bd_juego = [
         },
         {
             id: 'P',
-            pregunta: "trago puertoriqueño que contiene La dulce mezcla de crema de coco, jugo de anana, ron blanco y hielo ",
+            pregunta: "Trago puertoriqueño que contiene La dulce mezcla de crema de coco, jugo de anana, ron blanco y hielo ",
             respuesta: "piña colada"
         },
         {
@@ -159,7 +159,7 @@ const bd_juego = [
 
 const timer = document.getElementById("tiempo");
 
-const TIEMPO_DEL_JUEGO = 70;
+const TIEMPO_DEL_JUEGO = 160;
 //variable tiempo restante
 let timeleft = TIEMPO_DEL_JUEGO;
 //variable que maneja el contador

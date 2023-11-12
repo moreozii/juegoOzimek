@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Anton&display';
-    background-image: url("/fondojuego.png");
+    background-image: url("img/fondojuego.png");
     background-attachment: fixed;
     background-size: cover;
 }
@@ -183,4 +183,13 @@ button:hover {
    
 
 
+}
+
+#guaracha{
+    position: fixed;
+    top: 0;
+    left: 0;
+    border: 4px solid #000;
+    border-radius: 0%;
+    background: #000;
 }

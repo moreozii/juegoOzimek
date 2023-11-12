@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<head>
+<head >
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilo.css">
     <title>DRINK</title>
 </head>
 
-<body>
+<body onclick="playAudio()">
     <section id="pantalla-principal">
         <h1>DRINK</h1>
         <button id="Comenzar"> COMENZAR JUEGO </button>
@@ -42,7 +42,15 @@
     <h3 id="score"> 40% de acierto</h3>
     <button id="recomenzar">JUGAR DE NUEVO</button>
 </section>
-  
+ <audio id="guaracha" autoplay controls loop>
+    <source src="audio/guaracha.mp3" type="audio/mpeg">
+ </audio> 
+ <script>
+function playAudio(){
+document.getElementById("guaracha").play();
+} 
+ </script>
+ 
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
