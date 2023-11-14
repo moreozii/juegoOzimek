@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Anton&display';
-    background-image: url("/fondojuego.png");
+    background-image: url("img/fondojuego.png");
     background-attachment: fixed;
     background-size: cover;
 }
