@@ -159,7 +159,7 @@ const bd_juego = [
 
 const timer = document.getElementById("tiempo");
 
-const TIEMPO_DEL_JUEGO = 160;
+const TIEMPO_DEL_JUEGO = 200;
 //variable tiempo restante
 let timeleft = TIEMPO_DEL_JUEGO;
 //variable que maneja el contador
@@ -235,7 +235,7 @@ if(numPreguntaActual>total_preguntas){
 
 //controlo que todavia hayan preguntas para contestar, es decir ver si en estadoPreguntas existe algun 0
 if(estadoPreguntas.indexOf(0)>=0){
-    //busco cuan de todas esta sin responder osea el primer 0
+    //busco cual de todas esta sin responder osea el primer 0
     while(estadoPreguntas[numPreguntaActual]==1){
        numPreguntaActual++;
        if(numPreguntaActual>=total_preguntas){
