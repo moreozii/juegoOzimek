@@ -150,8 +150,8 @@ const bd_juego = [
         },
         {
             id: '☠',
-            pregunta: "se toma en las fiestas, con alcohol y sin alcohol",
-            respuesta: "sidra "
+            pregunta: "FIN DEL JUEGO",
+            respuesta: ""
         }
 
     ]
@@ -183,6 +183,19 @@ for (let i = 1; i <= total_preguntas; i++) {
     circle.style.left = `${x}px`;
     circle.style.top = `${y}px`;
 }
+//boton creditos
+
+var botonCreditos = document.getElementById('boton-creditos');
+var creditosContainer = document.getElementById('container-creditos');
+
+//  clic al botón
+botonCreditos.addEventListener('click', function() {
+  // Mostrar créditos
+  creditosContainer.style.display = 'block';
+
+});
+
+
 //boton comenzar
 var comenzar = document.getElementById("Comenzar");
 comenzar.addEventListener("click", function(event) {
@@ -203,9 +216,9 @@ function largarTiempo() {
         timer.innerText = timeleft;
 
         //si el tiempo llega a 0, se detiene el cronometro
-        if (timeleft < 1) {
+        if (timeleft < 1 || numPreguntaActual==26) {
             clearInterval(countdown);
-             Swal.fire("Se termino el tiempo, tenes que tomar un shot!");
+             Swal.fire("Fin del juego!!");
             mostrarPantallaFinal();
         }
 
@@ -215,7 +228,7 @@ function largarTiempo() {
 function cargarPregunta(){
 numPreguntaActual++;
 //me fijo si llego al final de las preguntas para empezar de nuevo
-if(numPreguntaActual>=total_preguntas){
+if(numPreguntaActual>total_preguntas){
     numPreguntaActual=0;
 }
 
@@ -234,8 +247,11 @@ document.getElementById("letra-pregunta").textContent=bd_juego[numPreguntaActual
 document.getElementById("pregunta").textContent=bd_juego[numPreguntaActual].pregunta;
 var letra=bd_juego[numPreguntaActual].id;
 document.getElementById(letra).classList.add("pregunta-actual");
+
 }
-else{//ya se respondieron todas las preguntas
+else{
+    //ya se respondieron todas las preguntas
+
     clearInterval(countdown);
     mostrarPantallaFinal();
 
@@ -260,26 +276,26 @@ respuesta.addEventListener("keyup", function(event){
 
     }
 })
+
 function controlarRespuesta(txtRespuesta){
     //controlo si la respuesta es correcta
-    if(txtRespuesta == bd_juego[numPreguntaActual].respuesta){
-       // Swal.fire("Correcto!");  
+
+    var letra=bd_juego[numPreguntaActual].id;
+
+    if(bd_juego[numPreguntaActual].respuesta == txtRespuesta){
+       // ("Correcto!");  
        cantidadAcertadas++;
 
        //actualizo la pregunta actual a 1 para saber que ya esta respondida
        estadoPreguntas[numPreguntaActual]=1;
 
-       var letra=bd_juego[numPreguntaActual].id;
-
        document.getElementById(letra).classList.remove("pregunta-actual");
        document.getElementById(letra).classList.add("bien-respondida");
-
 
     }
     else{
         estadoPreguntas[numPreguntaActual]=1;
-var letra=bd_juego[numPreguntaActual].id;
-      document.getElementById(letra).classList.remove("pregunta-actual");
+       document.getElementById(letra).classList.remove("pregunta-actual");
        document.getElementById(letra).classList.add("mal-respondida");
     }
     //borro
@@ -297,11 +313,10 @@ pasar.addEventListener("click", function(event){
 
 //muestro la pantalla final 
 function mostrarPantallaFinal(){
-    document.getElementById("acertadas").textContent =cantidadAcertadas;
-    document.getElementById("score").textContent=(cantidadAcertadas*100)/27 + "% de acierto";
+    document.getElementById("Acertadas").textContent =cantidadAcertadas;
+    document.getElementById("score").textContent=((cantidadAcertadas*100)/27).toFixed(2) + "% de acierto";
     document.getElementById("pantalla-juego").style.display="none";
     document.getElementById("pantalla-final").style.display="block";
-
 }
 
 //boton para jugar de nuevo
@@ -312,6 +327,8 @@ recomenzar.addEventListener("click", function (event){
     timer.innerText=timeleft;
     cantidadAcertadas=0;
     estadoPreguntas=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+
+    
 //saco las clases de los circulos
 var circulos=document.getElementsByClassName("circle");
 for(i=0; i<circulos.length;i++){
@@ -322,16 +339,15 @@ for(i=0; i<circulos.length;i++){
 
     
 }
-Document.getElementById("pantalla-final").style.display="none";
-Document.getElementById("pantalla-juego").style.display="block";
+
+document.getElementById("pantalla-final").style.display="none";
+document.getElementById("pantalla-juego").style.display="block";
 respuesta.value="";
 largarTiempo()
 cargarPregunta()
 
 
 })
-
-
 
 
 

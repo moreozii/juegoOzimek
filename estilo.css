@@ -184,7 +184,7 @@ button:hover {
 
 
 }
-
+/* por si pongo los controles*/
 #guaracha{
     position: fixed;
     top: 0;
@@ -193,3 +193,33 @@ button:hover {
     border-radius: 0%;
     background: #000;
 }
+
+
+#container-creditos {
+    display: none;
+    margin-top: 20px;
+    background-color: #0a0101;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #e08cd9;
+  color: #0a0808;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  
+  }
+
+  #custom-audio-controls {
+    width: 100%;
+    margin-top: 20px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  

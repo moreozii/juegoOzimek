@@ -1,58 +1,76 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<head >
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilo.css">
     <title>DRINK</title>
 </head>
 
+  
 <body onclick="playAudio()">
-    <section id="pantalla-principal">
-        <h1>DRINK</h1>
-        <button id="Comenzar"> COMENZAR JUEGO </button>
-    </section>
+
+        <section id="pantalla-principal">
+            <h1>DRINK</h1>
+            <button id="Comenzar"> COMENZAR JUEGO </button>
+           <br>
+            <button id="boton-creditos">VER CREDITOS</button>
+
+  <div id="container-creditos" class="hidden">
+    <h2>Creado por: Morena Ozimek</h2>
+    <h2>Idea: Morena Ozimek</h2>
+    <h2>Desarrollado: Morena Ozimek</h2>
+    <p>Profesor:German Sanchez</p>
+  </div>
+        </section>
 
     <!-- seccion del juego -->
-    <section id="pantalla-juego">
-
-
+        <section id="pantalla-juego">
         <!-- aca se generan las letras  -->
-        <div class="container">
-            <span id="tiempo">60</span>
-            <!-- Aca se generan las letras-->
-        </div>
-        <div class="cosoDepreguntas">
-            <span id="letra-pregunta">Z</span>
-            <h2 id="pregunta">La pregunta es....</h2>
-            <input type="text" id="respuesta">
-            <div class="botones">
-                <button id="responder">Responder</button>
-                <button id="pasar">Pasa Drink</button>
+            <div class="container">
+                <span id="tiempo">160</span>
+                <!-- Aca se generan las letras-->
             </div>
+            <div class="cosoDepreguntas">
+                <span id="letra-pregunta">Z</span>
+                <h2 id="pregunta">La pregunta es....</h2>
+                <input type="text" id="respuesta">
+                <div class="botones">
+                    <button id="responder">Responder</button>
+                    <button id="pasar">Pasa Drink</button>
+                </div>
+            </div>
+        </section>
 
-        </div>
-    </section>
-<!-- seccion pantalla final -->
-<section id="pantalla-final">
-    <h1>Resumen</h1>
-    <h3>Acertadas</h3>
-    <span id="Acertadas">27</span>
-    <h3 id="score"> 40% de acierto</h3>
-    <button id="recomenzar">JUGAR DE NUEVO</button>
-</section>
- <audio id="guaracha" autoplay controls loop>
-    <source src="audio/guaracha.mp3" type="audio/mpeg">
- </audio> 
- <script>
-function playAudio(){
-document.getElementById("guaracha").play();
-} 
- </script>
+        <!-- seccion pantalla final -->
+        <section id="pantalla-final">
+            <h1>Resumen</h1>
+            <h3>Acertadas</h3>
+            <span id="Acertadas">27</span>
+            <h3 id="score"> % de acierto</h3>
+            <h2>Mas de 12 aciertos no tomas nada! </h2>
+            <h2>Menos de 12 aciertos un shot!</h2>
+            <h2>Menos de 6 aciertos dos shots!</h2>
+            <p>Si se te termino el tiempo le agregas un shot mas!!</p>
+
+            <button id="recomenzar">JUGAR DE NUEVO</button>
+        </section>
+        
+       
+        <audio id="guaracha" autoplay loop>
+            <source src="audio/guaracha.mp3" type="audio/mpeg">
+        </audio> 
+
+        <script>
+            function playAudio(){
+                document.getElementById("guaracha").play();
+            } 
+        </script>
+        
  
-    <script src="script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-</body>
-
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="script.js"></script>
+    
+    </body>
 </html>
