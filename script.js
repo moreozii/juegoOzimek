@@ -81,7 +81,7 @@ const bd_juego = [
         {
             id: 'M',
             pregunta: "Trago ron blanco, azúcar, lima, hojas de menta y agua con gas.",
-            respuesta: "Mojito"
+            respuesta: "mojito"
         },
         {
             id: 'N',
@@ -150,7 +150,7 @@ const bd_juego = [
         },
         {
             id: '☠',
-            pregunta: "FIN DEL JUEGO",
+            pregunta: "FIN DEL JUEGO, presione enter",
             respuesta: ""
         }
 
@@ -164,14 +164,15 @@ const TIEMPO_DEL_JUEGO = 200;
 let timeleft = TIEMPO_DEL_JUEGO;
 //variable que maneja el contador
 var countdown;
-//letras de la a A la Z
+//letras de la a A la Z con circulos numerados 
 const container = document.querySelector(".container")
 
 for (let i = 1; i <= total_preguntas; i++) {
     const circle = document.createElement("div");
     circle.classList.add("circle");
     if (i == 27) {
-        circle.textContent = "☠";
+        circle.textContent = "☠";        
+        
     } else {
         circle.textContent = String.fromCharCode(i + 96);
     }
@@ -224,6 +225,8 @@ function largarTiempo() {
 
     }, 1000);
 }
+
+
 //funcion que carga la pregunta
 function cargarPregunta(){
 numPreguntaActual++;
@@ -255,11 +258,7 @@ else{
     clearInterval(countdown);
     mostrarPantallaFinal();
 
-}
-
-
-
-}
+}}
 //me fijo cada vez que haya un cambio en el input para ver cuando se presiona ENTER y controlar si lo que ingreso es o no es
 var respuesta=document.getElementById("respuesta");
 respuesta.addEventListener("keyup", function(event){
@@ -329,7 +328,7 @@ recomenzar.addEventListener("click", function (event){
     estadoPreguntas=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 
     
-//saco las clases de los circulos
+//saco las marcas de los circulos
 var circulos=document.getElementsByClassName("circle");
 for(i=0; i<circulos.length;i++){
 

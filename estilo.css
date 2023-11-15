@@ -184,7 +184,7 @@ button:hover {
 
 
 }
-/* por si pongo los controles*/
+/* por si pongo los controles de la musica*/
 #guaracha{
     position: fixed;
     top: 0;
@@ -209,17 +209,3 @@ button:hover {
   cursor: pointer;
   
   }
-
-  #custom-audio-controls {
-    width: 100%;
-    margin-top: 20px;
-    background-color: #333;
-    color: #fff;
-    border-radius: 10px;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  
